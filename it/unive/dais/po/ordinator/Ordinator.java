@@ -15,8 +15,8 @@ public interface Ordinator<T> {
 
     public T[] sort(Comparator<T> comp);
 
-    public void sort(Collection<T> destination) throws NoComparatorFound, NeedEmptyCollection;
+//    public void sort(Collection<T> destination) throws NoComparatorFound, NeedEmptyCollection;
 
-    public void sort(Comparator<T> comp, Collection<T> destination) throws NeedEmptyCollection;
+//    public void sort(Comparator<T> comp, Collection<T> destination) throws NeedEmptyCollection;
 
 }
