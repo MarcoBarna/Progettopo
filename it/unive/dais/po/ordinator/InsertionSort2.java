@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 
-public class InsertionSort2<T> implements Ordinator<T> {
+public class InsertionSort2<T> implements Ordinator2<T> {
 
     private ArrayList<T> myArrayList;
     private Comparator<T> myComparator;
@@ -18,25 +18,14 @@ public class InsertionSort2<T> implements Ordinator<T> {
         sorted = false;
     }
 
-    public InsertionSort2(Comparator<T> comparator) {
-        this();
-        addComparator(comparator);
-    }
-
-    public InsertionSort2(Collection<T> collection) {
-        this();
-        addData(collection);
-    }
-
-    public InsertionSort2(Collection<T> collection, Comparator<T> comparator) {
-        this(comparator);
-        addData(collection);
+    public boolean isSorted() {
+        return sorted;
     }
 
     @Override
-    public void addData(Collection<T> data) throws RuntimeException {
+    public void addData(Collection<T> dataCollection) throws RuntimeException {
         sorted = false;
-            if(myArrayList.addAll(data) == false)
+            if(myArrayList.addAll(dataCollection) == false)
                 throw new RuntimeException("addData(Collection.addAll) failed");
     }
 
@@ -48,7 +37,7 @@ public class InsertionSort2<T> implements Ordinator<T> {
     }
 
     @Override
-    public Integer getSize() {
+    public Integer getDataSize() {
         return myArrayList.size();
     }
 
