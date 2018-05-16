@@ -5,14 +5,14 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 
-public class InsertionSort2<T> implements Ordinator2<T> {
+public class InsertionSort<T> implements Ordinator<T> {
 
     private ArrayList<T> myArrayList;
     private Comparator<T> myComparator;
 
     private boolean sorted;
 
-    public InsertionSort2() {
+    public InsertionSort() {
         myArrayList = new ArrayList<T>();
         myComparator = null;
         sorted = false;
