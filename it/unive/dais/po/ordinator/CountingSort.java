@@ -14,7 +14,7 @@ public class CountingSort<T> {
     private Integer[] countingArray; //array che memorizza le posizioni in cui inserire gli oggetti
                                      //che hanno valore equivalente all'indirizzo del countingArray
 
-    boolean sorted;
+    private boolean sorted;
 
     //costruttore
     public CountingSort(){
@@ -45,6 +45,7 @@ public class CountingSort<T> {
     //aggiunge un Extractor al CountingSort
     public void addExtractor (Extractor<T> extractor){
         this.extractor = extractor;
+        sorted = false;
     }
 
     //cerca nell'input alla ricerca del minimo e del massimo, successivamente calcola il range
@@ -61,8 +62,8 @@ public class CountingSort<T> {
 
     //analizza l'input e lo mette in output, poi restituisce l'output
     public ArrayList<T> sort(){
-        output = new ArrayList<T>(input);
         if (sorted == false) {
+            output = new ArrayList<T>(input);
             exploreInput();
 
             countingArray = new Integer[range];
@@ -82,6 +83,7 @@ public class CountingSort<T> {
 
             sorted = true;
         }
-        return output;
+
+        return new ArrayList<T>(output);
     }
 }

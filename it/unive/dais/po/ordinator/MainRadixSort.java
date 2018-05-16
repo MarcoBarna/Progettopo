@@ -57,10 +57,11 @@ public class MainRadixSort {
         sorter.addData(98);
         sorter.addData(16);
 
-//        for (CountingSort<Integer> step : steps) {
-//            sorter.addStep(step);
-//        }
-        sorter.addStep(steps[0]);
+        for (CountingSort<Integer> step : steps) {
+            sorter.addStep(step);
+        }
+
+//        sorter.addStep(steps[0]);
 
         array = sorter.sort();
 
