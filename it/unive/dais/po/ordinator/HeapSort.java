@@ -9,6 +9,8 @@ public class HeapSort<T> implements Ordinator<T> {
 
     private ArrayList<T> maxHeap;
     private Comparator<T> myComparator;
+
+    //variabile che usiamo per l'heapsort
     private int heapSize;
 
     private boolean sorted;
@@ -17,6 +19,7 @@ public class HeapSort<T> implements Ordinator<T> {
         maxHeap = new ArrayList<>();
         myComparator = null;
         heapSize = 0;
+        sorted = false;
     }
 
     @Override
@@ -92,6 +95,8 @@ public class HeapSort<T> implements Ordinator<T> {
     @Override
     public void sort(Comparator<T> comp) throws NoComparatorFound {
 
+        myComparator = comp;
+        sort();
     }
 
     @Override
@@ -101,6 +106,6 @@ public class HeapSort<T> implements Ordinator<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return maxHeap.iterator();
     }
 }
