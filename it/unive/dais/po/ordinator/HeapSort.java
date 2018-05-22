@@ -90,6 +90,8 @@ public class HeapSort<T> implements Ordinator<T> {
             heapSize = heapSize - 1;
             maxHeapify(maxHeap, 0);
         }
+
+        sorted = true;
     }
 
     @Override
