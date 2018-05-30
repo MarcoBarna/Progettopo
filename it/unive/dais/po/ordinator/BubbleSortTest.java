@@ -20,7 +20,12 @@ public class BubbleSortTest {
         System.out.println(myList);
         BubbleSort<Integer> bubbleSort = new BubbleSort<>();
         bubbleSort.addData(myList);
-        bubbleSort.sort();
+        bubbleSort.addComparator((Integer a, Integer b) -> (a.compareTo(b)));
+        try {
+            bubbleSort.sort();
+        } catch (NoComparatorFound noComparatorFound) {
+            noComparatorFound.printStackTrace();
+        }
         System.out.println(bubbleSort.getArrayListCopy());
     }
 }
