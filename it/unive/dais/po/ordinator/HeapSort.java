@@ -7,63 +7,6 @@ import java.util.Iterator;
 
 public class HeapSort<T> implements Ordinator<T> {
 
-    private class MaxHeap<T>{
-        private ArrayList<T> maxHeap;
-        private Comparator<T> myComparator;
-
-        public MaxHeap() {
-            maxHeap = new ArrayList<>();
-            myComparator = null;
-        }
-
-        public void addData(Collection<T> dataCollection) {
-            maxHeap.addAll(dataCollection);
-        }
-
-        public void addData(T data) {
-            maxHeap.add(data);
-        }
-
-        public int leftSon(int index){
-            return (index+1)*2 - 1;
-        }
-
-        public int rightSon(int index){
-            return (index+1)*2;
-        }
-
-        public int parent(int index){
-            return (index+1)/2 - 1;
-        }
-
-        private void buildMaxHeap(ArrayList<T> heap) {
-            for (int i = maxHeap.size() /2; i >= 0 ; i--) {
-                maxHeapify(heap, i);
-            }
-        }
-
-        private void maxHeapify(ArrayList<T> maxHeap, int i) {
-            int l, r, max;
-            T aux;
-
-            l = leftSon(i);
-            r = rightSon(i);
-            max = i;
-
-            if(l < maxHeap.size() && myComparator.compare(maxHeap.get(l), maxHeap.get(i)) > 0)
-                max = l;
-            if(r < maxHeap.size() && myComparator.compare(maxHeap.get(r), maxHeap.get(max)) > 0)
-                max = r;
-
-            if(i != max){
-                aux = maxHeap.get(i);
-                maxHeap.set(i, maxHeap.get(max));
-                maxHeap.set(max, aux);
-                maxHeapify(maxHeap, max);
-            }
-        }
-    }
-
     private ArrayList<T> maxHeap;
     private Comparator<T> myComparator;
 
