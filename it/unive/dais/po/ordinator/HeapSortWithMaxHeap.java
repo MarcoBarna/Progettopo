@@ -7,21 +7,15 @@ import java.util.Iterator;
 
 public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
 
-    private class MaxHeap<S>{
-        private ArrayList<S> heap;
-        private Comparator<S> comparator;
+    private class MaxHeap<S> extends ArrayList<S>{
 
-        public MaxHeap() {
-            heap = new ArrayList<S>();
-            comparator = null;
-        }
+        private Comparator<S> myComparator;
+        private int heapSize;
 
-        public void addData(Collection<S> dataCollection) {
-            heap.addAll(dataCollection);
-        }
-
-        public void addData(S data) {
-            heap.add(data);
+        public MaxHeap(){
+            super();
+            myComparator = null;
+            heapSize = 0;
         }
 
         public int leftSon(int index){
@@ -37,9 +31,9 @@ public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
         }*/
 
         private void build() throws NoComparatorFound{
-            comparator = (Comparator<S>) myComparator;
+            heapSize = size();
             if (myComparator == null) throw new NoComparatorFound("MaxHeap.build, manca comparator.");
-            for (int i = heap.size() /2; i >= 0 ; i--) {
+            for (int i = heapSize /2; i >= 0 ; i--) {
                 maxHeapify( i);
             }
         }
@@ -52,29 +46,32 @@ public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
             r = rightSon(index);
             max = index;
 
-            if(l < heap.size() && comparator.compare(heap.get(l), heap.get(index)) > 0)
+            if(l < heapSize && myComparator.compare(get(l), get(index)) > 0)
                 max = l;
-            if(r < heap.size() && comparator.compare(heap.get(r), heap.get(max)) > 0)
+            if(r < heapSize && myComparator.compare(get(r), get(max)) > 0)
                 max = r;
 
             if(index != max){
-                aux = heap.get(index);
-                heap.set(index, heap.get(max));
-                heap.set(max, aux);
+                aux = get(index);
+                set(index, get(max));
+                set(max, aux);
                 maxHeapify(max);
             }
         }
 
         public S extractMax(){
-            S max = heap.get(0);
-            heap.set(0, heap.get(heap.size()-1));
-            heap.remove(heap.size()-1);
+            S max = get(0);
+            set(0, get(size()-1));
             maxHeapify(0);
             return max;
         }
 
-        public Integer size() {
-            return heap.size();
+        public int getHeapSize(){
+            return heapSize;
+        }
+
+        public void setMyComparator(Comparator<S> myComparator) {
+            this.myComparator = myComparator;
         }
     }
 
@@ -86,7 +83,6 @@ public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
 
     public HeapSortWithMaxHeap() {
         maxHeap = new MaxHeap<T>();
-        myArrayList = new ArrayList<T>();
         myComparator = null;
         sorted = false;
     }
@@ -94,13 +90,13 @@ public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
     @Override
     public void addData(Collection<T> dataCollection) {
         sorted = false;
-        maxHeap.addData(dataCollection);
+        maxHeap.addAll(dataCollection);
     }
 
     @Override
     public void addData(T data) {
         sorted = false;
-        maxHeap.addData(data);
+        maxHeap.add(data);
     }
 
     @Override
@@ -115,12 +111,10 @@ public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
 
     @Override
     public void sort() throws NoComparatorFound {
+        maxHeap.setMyComparator(myComparator);
         maxHeap.build();
-        myArrayList = new ArrayList<>(maxHeap.size());
-        for ( int i = maxHeap.size()-1; i >= 0; i--) {
-            //System.out.println(maxHeap.extractMax());
-            myArrayList.add(maxHeap.extractMax());
-        }
+        for ( int i = maxHeap.size()-1; i >= 0; i--)
+            maxHeap.add(maxHeap.getHeapSize(),maxHeap.extractMax());
         sorted = true;
     }
 
