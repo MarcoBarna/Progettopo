@@ -38,34 +38,40 @@ public class HereditaryOrdinator<O> extends ArrayList<O> {
 //        return srtd;
 //    }
 
+    protected void swap(int i, int j){
+        O a = get(i); // salva temporaneamente l'elemento in pos i
+        set(i, get(j)); // scambia i con j
+        set(j,a); // scambia j con a
+    }
+
     @Override
     public void add(int index, O e) {
-        sorted = false;
+        setSorted(false);
         super.add(index, e);
     }
 
     @Override
     public boolean add(O e) {
-        sorted = false;
+        setSorted(false);
         return super.add(e);
     }
 
     @Override
     public boolean addAll(int index, Collection<? extends O> c) {
-        sorted = false;
+        setSorted(false);
         return super.addAll(index, c);
     }
 
     @Override
     public boolean addAll(Collection<? extends O> c) {
-        sorted = false;
+        setSorted(false);
         return super.addAll(c);
     }
 
     @Override
     public void sort(Comparator<? super O> c){
         super.sort(c);
-        sorted = true;
+        setSorted(true);
     }
 
     public void sort() throws Exception{
