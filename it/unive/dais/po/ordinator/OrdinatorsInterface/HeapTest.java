@@ -1,5 +1,7 @@
 package it.unive.dais.po.ordinator.OrdinatorsInterface;
 
+import it.unive.dais.po.ordinator.Exceptions.NoComparatorFound;
+
 import java.util.ArrayList;
 
 public class HeapTest {

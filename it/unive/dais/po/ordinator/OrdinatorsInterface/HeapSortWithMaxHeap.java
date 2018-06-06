@@ -1,5 +1,7 @@
 package it.unive.dais.po.ordinator.OrdinatorsInterface;
 
+import it.unive.dais.po.ordinator.Exceptions.NoComparatorFound;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -30,7 +32,7 @@ public class HeapSortWithMaxHeap<T> implements Ordinator<T> {
             return (index+1)/2 - 1;
         }*/
 
-        private void build() throws NoComparatorFound{
+        private void build() throws NoComparatorFound {
             heapSize = size();
             if (myComparator == null) throw new NoComparatorFound("MaxHeap.build, manca comparator.");
             for (int i = heapSize /2; i >= 0 ; i--) {
