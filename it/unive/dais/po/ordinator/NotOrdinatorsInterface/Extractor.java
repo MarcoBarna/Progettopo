@@ -1,4 +1,4 @@
-package it.unive.dais.po.ordinator.OrdinatorsInterface;
+package it.unive.dais.po.ordinator.NotOrdinatorsInterface;
 
 public interface Extractor<T> {
 

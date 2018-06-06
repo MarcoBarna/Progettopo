@@ -1,4 +1,4 @@
-package it.unive.dais.po.ordinator.OrdinatorsInterface;
+package it.unive.dais.po.ordinator.NotOrdinatorsInterface;
 
 import java.util.ArrayList;
 import java.util.Collection;
