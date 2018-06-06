@@ -1,5 +1,6 @@
 package it.unive.dais.po.ordinator.HereditaryOrdinators;
 
+import it.unive.dais.po.ordinator.Exceptions.NoComparatorFound;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -84,7 +85,7 @@ public class HereditaryOrdinator<O> extends ArrayList<O> {
 
     public void sort() throws Exception{
         if (myComparator == null)
-            throw new Exception("it.unive.dais.po.ordinator.HereditaryOrdinators.HereditaryOrdinator.sort() -> No Comparator Found!");
+            throw new NoComparatorFound("it.unive.dais.po.ordinator.HereditaryOrdinators.HereditaryOrdinator.sort() -> No Comparator Found!");
         sort(myComparator);
     }
 }
