@@ -1,9 +1,8 @@
-package it.unive.dais.po.ordinator;
+package it.unive.dais.po.ordinator.OrdinatorsInterface;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.Iterator;
 
 public interface Ordinator<T> extends Iterable<T>{
 

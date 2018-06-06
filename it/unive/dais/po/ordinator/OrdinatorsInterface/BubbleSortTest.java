@@ -1,7 +1,6 @@
-package it.unive.dais.po.ordinator;
+package it.unive.dais.po.ordinator.OrdinatorsInterface;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class BubbleSortTest {
     public static void main(String[] args) {

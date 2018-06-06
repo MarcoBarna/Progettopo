@@ -1,4 +1,4 @@
-package it.unive.dais.po.ordinator;
+package it.unive.dais.po.ordinator.OrdinatorsInterface;
 
 import java.util.*;
 
