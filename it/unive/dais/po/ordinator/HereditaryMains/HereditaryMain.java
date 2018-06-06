@@ -1,6 +1,6 @@
 package it.unive.dais.po.ordinator.HereditaryMains;
 
-import it.unive.dais.po.ordinator.ComparingOrdinators.*;
+import it.unive.dais.po.ordinator.HereditaryOrdinators.*;
 
 import java.util.Comparator;
 import java.util.Random;
@@ -8,7 +8,7 @@ import java.util.Random;
 public class HereditaryMain {
 
     public static void main(String[] args){
-        HereditaryOrdinator<Integer> o = new HereditaryMergeSort<>();
+        HereditaryOrdinator<Integer> o = new HereditaryHeapSort<>();
         Comparator<Integer> comp = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
@@ -26,13 +26,15 @@ public class HereditaryMain {
         for (int i = 0; i < 30; i++)
             o.add(rand.nextInt(100));
 
-        o.setMyComparator((Integer i, Integer j) -> i - j);
+//        o.setMyComparator((Integer i, Integer j) -> i - j);
+//
+//        try {
+//            o.sort();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        try {
-            o.sort();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        o.sort((Integer i, Integer j) -> i - j);
         System.out.println(o);
     }
 }

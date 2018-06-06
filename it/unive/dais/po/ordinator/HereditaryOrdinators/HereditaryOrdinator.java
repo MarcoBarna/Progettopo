@@ -1,6 +1,5 @@
-package it.unive.dais.po.ordinator.ComparingOrdinators;
+package it.unive.dais.po.ordinator.HereditaryOrdinators;
 
-import javax.swing.table.TableRowSorter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -39,9 +38,12 @@ public class HereditaryOrdinator<O> extends ArrayList<O> {
 //    }
 
     protected void swap(int i, int j){
-        O a = get(i); // salva temporaneamente l'elemento in pos i
-        set(i, get(j)); // scambia i con j
-        set(j,a); // scambia j con a
+
+        set(i, set(j, get(i)));
+
+//        O a = get(i); // salva temporaneamente l'elemento in pos i
+//        set(i, get(j)); // scambia i con j
+//        set(j,a); // scambia j con a
     }
 
     @Override
@@ -69,6 +71,12 @@ public class HereditaryOrdinator<O> extends ArrayList<O> {
     }
 
     @Override
+    public O set(int index, O element){
+        setSorted(false);
+        return super.set(index, element);
+    }
+
+    @Override
     public void sort(Comparator<? super O> c){
         super.sort(c);
         setSorted(true);
@@ -76,7 +84,7 @@ public class HereditaryOrdinator<O> extends ArrayList<O> {
 
     public void sort() throws Exception{
         if (myComparator == null)
-            throw new Exception("it.unive.dais.po.ordinator.ComparingOrdinators.HereditaryOrdinator.sort() -> No Comparator Found!");
+            throw new Exception("it.unive.dais.po.ordinator.HereditaryOrdinators.HereditaryOrdinator.sort() -> No Comparator Found!");
         sort(myComparator);
     }
 }

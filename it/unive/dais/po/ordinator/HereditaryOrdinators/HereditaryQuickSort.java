@@ -1,7 +1,4 @@
-package it.unive.dais.po.ordinator.ComparingOrdinators;
-
-import it.unive.dais.po.ordinator.NoComparatorFound;
-import it.unive.dais.po.ordinator.Ordinator;
+package it.unive.dais.po.ordinator.HereditaryOrdinators;
 
 import java.util.*;
 

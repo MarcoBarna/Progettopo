@@ -1,4 +1,4 @@
-package it.unive.dais.po.ordinator.ComparingOrdinators;
+package it.unive.dais.po.ordinator.HereditaryOrdinators;
 
 import java.util.Comparator;
 

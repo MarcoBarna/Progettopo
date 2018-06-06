@@ -1,12 +1,6 @@
-package it.unive.dais.po.ordinator.ComparingOrdinators;
+package it.unive.dais.po.ordinator.HereditaryOrdinators;
 
-import it.unive.dais.po.ordinator.NoComparatorFound;
-import it.unive.dais.po.ordinator.Ordinator;
-
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
-import java.util.Iterator;
 
 public class HereditaryBubbleSort<T> extends HereditaryOrdinator<T> {
 
