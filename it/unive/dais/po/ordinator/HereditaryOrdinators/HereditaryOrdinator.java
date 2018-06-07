@@ -85,7 +85,7 @@ public class HereditaryOrdinator<O> extends ArrayList<O> {
 
     public void sort() throws Exception{
         if (myComparator == null)
-            throw new NoComparatorFound("it.unive.dais.po.ordinator.HereditaryOrdinators.HereditaryOrdinator.sort() -> No Comparator Found!");
+            throw new NoComparatorFound("it.unive.dais.po.ordinator.HereditaryOrdinators.HereditaryOrdinator.sort() -> No Comparator(" + getMyComparator() + ") Found!");
         sort(myComparator);
     }
 }
