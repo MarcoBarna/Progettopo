@@ -1,4 +1,4 @@
-# ITALIANO
+## ITALIANO
 Repository ufficiale per il progetto di programmazione ad oggetti mod 2 as 2017/2018. Qui troverai tutte le implemenazioni comuni per i principali algoritmi di sorting in jvava
 
 
